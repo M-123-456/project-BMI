@@ -1,0 +1,77 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: black, 1px, solid;
+}
+
+:root {
+  font-size: 62.5%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #084887;
+}
+
+body {
+  margin-top: 2rem;
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.calculator {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 30rem;
+}
+
+.item {
+  display: flex;
+}
+
+input {
+  width: 50%;
+  font-size: 2rem;
+  color: #084887;
+  padding-left: 0.5rem;
+  justify-self: end;
+  border-radius: 5px;
+  border-color: #909cc2;
+  margin-left: auto;
+}
+
+button {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #f58a07;
+  font-size: 2rem;
+}
+
+button:hover,
+button:active {
+  background-color: #c67006;
+}
+
+#reset {
+  background-color: #f9ab55;
+}
+
+#reset:hover,
+#reset:active {
+  background-color: #ec7e09;
+}
+
+#calculatedBmi {
+  text-align: center;
+  color: black;
+  font-size: 3rem;
+}
+
+#evaluatedBmi {
+  text-align: center;
+  color: black;
+  padding: 0.5rem;
+}
