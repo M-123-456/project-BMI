@@ -16,7 +16,7 @@ const calcBmi = () => {
   const height = ElementById("height").value;
   const weight = ElementById("weight").value;
 
-  const bmi = Math.round(weight / height ** 2);
+  const bmi = Number((weight / height ** 2).toFixed(2));
   console.log(bmi);
 
   // If nothing is input, result box says "No inputs!".
