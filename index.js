@@ -6,7 +6,7 @@ const ElementById = (id) => {
 // Trigger "onclick" by enter
 const lastInput = ElementById("height");
 lastInput.addEventListener("keyup", function (e) {
-  if (e.which === 13) {
+  if (e.key === 13) {
     ElementById("go").click();
   }
 });
