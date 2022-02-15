@@ -7,8 +7,15 @@ const calcBmi = () => {
   const weight = document.getElementById("weight").value;
 
   const bmi = Math.round(weight / height ** 2);
+  console.log(bmi);
 
-  document.getElementById("calculatedBmi").innerHTML = `Your BMI is ${bmi}`;
+  if (isNaN(bmi)) {
+    document.getElementById("tadaa").innerHTML = `Tadaa!`;
+  } else {
+    document.getElementById("tadaa").innerHTML = `Tadaa! You are...`;
+    document.getElementById("calculatedBmi").innerHTML = `Your BMI is ${bmi}`;
+  }
+
   evaluateBmi(bmi);
   changeColor();
 };
@@ -86,30 +93,31 @@ const evaluateBmi = (bmi) => {
       }
       break;
     default:
-      console.log(`Please make sure you give correct inputs`);
+      document.getElementById("evaluatedBmi").innerHTML = `No inputs yet!`;
       break;
   }
 };
 
 const changeColor = () => {
   const valueEvaluatedBmi = document.getElementById("evaluatedBmi").innerHTML;
-  switch (true) {
-    case valueEvaluatedBmi === `Normal weight`:
-      document.getElementById("evaluatedBmi").style.backgroundColor =
-        "#6CAE75 ";
-      break;
-    case valueEvaluatedBmi === `Underweight`:
-      document.getElementById("evaluatedBmi").style.backgroundColor =
-        "#39A0ED  ";
-      break;
-    case valueEvaluatedBmi === `Overweight`:
-      document.getElementById("evaluatedBmi").style.backgroundColor = "#FF006E";
-      break;
+  if (valueEvaluatedBmi === `Normal weight`) {
+    document.getElementById("result").style.backgroundColor = "#96d279";
+  } else if (
+    (valueEvaluatedBmi === `Underweight`) |
+    (valueEvaluatedBmi === `Overweight`)
+  ) {
+    document.getElementById("result").style.backgroundColor = "#e15073";
+  } else {
+    document.getElementById("result").style.backgroundColor = "#fcd194";
   }
 };
 
 const reset = () => {
   document.getElementById("calculatedBmi").innerHTML = "";
   document.getElementById("evaluatedBmi").innerHTML = "";
-  document.getElementById("evaluatedBmi").style.backgroundColor = "white";
+  document.getElementById("result").style.backgroundColor = "#fcd194";
+  document.getElementById("tadaa").innerHTML = ``;
+  document.getElementById("age").value = "0";
+  document.getElementById("weight").value = "0";
+  document.getElementById("height").value = "0.0";
 };

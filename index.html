@@ -8,30 +8,43 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>BMI-Calculator</h1>
+    <main>
+      <h1>Hello my friends, &#128075</br>here you can check your BMI</h1>
 
-    <div class="calculator">
-        <div class="item">
-            <label for="age">Age:</label>
-            <input class="input" name="age" id="age" type="number" value="20">
-        </div>
-        <div class="item">
-            <label for="height">Height(m):</label>
-            <input class="input" name="height" id="height" type="number" value="1.70">
-        </div>
-        <div class="item">
-            <label cfor="weight">Weight(kg):</label>
-            <input class="input" name="weight" id="weight" type="number" value="70">
-        </div>
-        <button onclick="calcBmi()">Calculate BMI</button>
-        <button id="reset" onclick="reset()">Reset</button>
-
+      <!-- Inputs -->
+      <section class="first-section">
+        <p>First, give me some data</p>
+        <div class="data">
+          <div class="item box">
+            <label for="age">Your age</label>
+            <input class="input" name="age" id="age" type="number" value="30">
+          </div>
+          <div class="item box">
+              <label for="weight">Your kilos</label>
+              <input class="input" name="weight" id="weight" type="number" value="60">
+          </div>
+          <div class="item box">
+            <label for="height">Your meters</label>
+            <input class="input" name="height" id="height" type="number" value="1.72">
+          </div>
+        </div>      
+        <button id="go" onclick="calcBmi()">Okay, let's go &#128556</button>
+      </section>
+      
+      <!-- Result-->
+      <section class="second-section">
         <div>
-            <p id="calculatedBmi"></p>
+          <p>And here is your result</p>
+          <div id="result" class="box">
+            <p id="tadaa"></p>
             <p id="evaluatedBmi"></p>
+            <p id="calculatedBmi"></p>
+          </div>   
         </div>
-        
-    <div>
+        <button id="reset" onclick="reset()">Reset</button>
+      </section>     
+     
+    </main>
     <script src="index.js"></script>
   </body>
 </html>
