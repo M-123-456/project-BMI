@@ -1,123 +1,143 @@
-const getIdToDOM = (id) => {
-  return document.getElementById(id).innerHTML;
+// function for document.getElementById
+const ElementById = (id) => {
+  return document.getElementById(id);
 };
 
+// Trigger "onclick" by enter
+const lastInput = ElementById("height");
+lastInput.addEventListener("keyup", function (e) {
+  if (e.which === 13) {
+    e.preventDefault();
+    ElementById("go").click();
+  }
+});
+
+// Calculate BMI
 const calcBmi = () => {
-  const height = document.getElementById("height").value;
-  const weight = document.getElementById("weight").value;
+  const height = ElementById("height").value;
+  const weight = ElementById("weight").value;
 
   const bmi = Math.round(weight / height ** 2);
   console.log(bmi);
 
+  // If nothing is input, result box says "No inputs!".
   if (isNaN(bmi)) {
-    document.getElementById("tadaa").innerHTML = `Tadaa!`;
+    ElementById("tadaa").innerHTML = `Tadaa!`;
   } else {
-    document.getElementById("tadaa").innerHTML = `Tadaa! You are...`;
-    document.getElementById("calculatedBmi").innerHTML = `Your BMI is ${bmi}`;
+    ElementById("tadaa").innerHTML = `Tadaa! You are...`;
+    ElementById("calculatedBmi").innerHTML = `Your BMI is ${bmi}`;
   }
 
+  // Function evaluation of BMI
   evaluateBmi(bmi);
+
+  // Function to change color of result box
   changeColor();
 };
 
 const evaluateBmi = (bmi) => {
-  const age = document.getElementById("age").value;
+  const age = ElementById("age").value;
+
+  // Categorization of ages
   const age1 = age >= 19 && age <= 24;
   const age2 = age >= 25 && age <= 34;
   const age3 = age >= 35 && age <= 44;
   const age4 = age >= 45 && age <= 54;
   const age5 = age >= 55 && age <= 64;
   const age6 = age >= 65;
+
   switch (true) {
     case age1:
       if (bmi >= 19 && bmi <= 24) {
-        document.getElementById("evaluatedBmi").innerHTML = `Normal weight`;
+        ElementById("evaluatedBmi").innerHTML = `Normal weight`;
       } else if (bmi < 19) {
-        document.getElementById("evaluatedBmi").innerHTML = `Underweight`;
+        ElementById("evaluatedBmi").innerHTML = `Underweight`;
       } else {
-        document.getElementById("evaluatedBmi").innerHTML = `Overweight`;
+        ElementById("evaluatedBmi").innerHTML = `Overweight`;
       }
       break;
     case age1:
       if (bmi >= 19 && bmi <= 24) {
-        document.getElementById("evaluatedBmi").innerHTML = `Normal weight`;
+        ElementById("evaluatedBmi").innerHTML = `Normal weight`;
       } else if (bmi < 19) {
-        document.getElementById("evaluatedBmi").innerHTML = `Underweight`;
+        ElementById("evaluatedBmi").innerHTML = `Underweight`;
       } else {
-        document.getElementById("evaluatedBmi").innerHTML = `Overweight`;
+        ElementById("evaluatedBmi").innerHTML = `Overweight`;
       }
       break;
     case age2:
       if (bmi >= 20 && bmi <= 25) {
-        document.getElementById("evaluatedBmi").innerHTML = `Normal weight`;
+        ElementById("evaluatedBmi").innerHTML = `Normal weight`;
       } else if (bmi < 20) {
-        document.getElementById("evaluatedBmi").innerHTML = `Underweight`;
+        ElementById("evaluatedBmi").innerHTML = `Underweight`;
       } else {
-        document.getElementById("evaluatedBmi").innerHTML = `Overweight`;
+        ElementById("evaluatedBmi").innerHTML = `Overweight`;
       }
       break;
     case age3:
       if (bmi >= 21 && bmi <= 26) {
-        document.getElementById("evaluatedBmi").innerHTML = `Normal weight`;
+        ElementById("evaluatedBmi").innerHTML = `Normal weight`;
       } else if (bmi < 21) {
-        document.getElementById("evaluatedBmi").innerHTML = `Underweight`;
+        ElementById("evaluatedBmi").innerHTML = `Underweight`;
       } else {
-        document.getElementById("evaluatedBmi").innerHTML = `Overweight`;
+        ElementById("evaluatedBmi").innerHTML = `Overweight`;
       }
       break;
     case age4:
       if (bmi >= 22 && bmi <= 27) {
-        document.getElementById("evaluatedBmi").innerHTML = `Normal weight`;
+        ElementById("evaluatedBmi").innerHTML = `Normal weight`;
       } else if (bmi < 22) {
-        document.getElementById("evaluatedBmi").innerHTML = `Underweight`;
+        ElementById("evaluatedBmi").innerHTML = `Underweight`;
       } else {
-        document.getElementById("evaluatedBmi").innerHTML = `Overweight`;
+        ElementById("evaluatedBmi").innerHTML = `Overweight`;
       }
       break;
     case age5:
       if (bmi >= 23 && bmi <= 28) {
-        document.getElementById("evaluatedBmi").innerHTML = `Normal weight`;
+        ElementById("evaluatedBmi").innerHTML = `Normal weight`;
       } else if (bmi < 23) {
-        document.getElementById("evaluatedBmi").innerHTML = `Underweight`;
+        ElementById("evaluatedBmi").innerHTML = `Underweight`;
       } else {
-        document.getElementById("evaluatedBmi").innerHTML = `Overweight`;
+        ElementById("evaluatedBmi").innerHTML = `Overweight`;
       }
       break;
     case age6:
       if (bmi >= 24 && bmi <= 29) {
-        document.getElementById("evaluatedBmi").innerHTML = `Normal weight`;
+        ElementById("evaluatedBmi").innerHTML = `Normal weight`;
       } else if (bmi < 24) {
-        document.getElementById("evaluatedBmi").innerHTML = `Underweight`;
+        ElementById("evaluatedBmi").innerHTML = `Underweight`;
       } else {
-        document.getElementById("evaluatedBmi").innerHTML = `Overweight`;
+        ElementById("evaluatedBmi").innerHTML = `Overweight`;
       }
       break;
     default:
-      document.getElementById("evaluatedBmi").innerHTML = `No inputs yet!`;
+      ElementById("evaluatedBmi").innerHTML = `No inputs yet!`;
       break;
   }
 };
 
+// Function to change color of result box
 const changeColor = () => {
-  const valueEvaluatedBmi = document.getElementById("evaluatedBmi").innerHTML;
+  const valueEvaluatedBmi = ElementById("evaluatedBmi").innerHTML;
   if (valueEvaluatedBmi === `Normal weight`) {
-    document.getElementById("result").style.backgroundColor = "#96d279";
+    ElementById("result").style.backgroundColor = "#96d279";
   } else if (
     (valueEvaluatedBmi === `Underweight`) |
     (valueEvaluatedBmi === `Overweight`)
   ) {
-    document.getElementById("result").style.backgroundColor = "#e15073";
+    ElementById("result").style.backgroundColor = "#e15073";
   } else {
-    document.getElementById("result").style.backgroundColor = "#fcd194";
+    ElementById("result").style.backgroundColor = "#fcd194";
   }
 };
 
+// set input fields to 0
 const reset = () => {
-  document.getElementById("calculatedBmi").innerHTML = "";
-  document.getElementById("evaluatedBmi").innerHTML = "";
-  document.getElementById("result").style.backgroundColor = "#fcd194";
-  document.getElementById("tadaa").innerHTML = ``;
-  document.getElementById("age").value = "0";
-  document.getElementById("weight").value = "0";
-  document.getElementById("height").value = "0.0";
+  ElementById("calculatedBmi").innerHTML = "";
+  ElementById("evaluatedBmi").innerHTML = "";
+  ElementById("result").style.backgroundColor = "rgba(255, 255, 255, 0.11)";
+  ElementById("tadaa").innerHTML = ``;
+  ElementById("age").value = "0";
+  ElementById("weight").value = "0";
+  ElementById("height").value = "0.0";
 };

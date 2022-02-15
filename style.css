@@ -8,16 +8,20 @@
 :root {
   font-size: 62.5%;
   font-family: Helvetica, Arial, sans-serif;
-  --backgroundColor1: var(#11101d);
-  --backgroundColor2: var(#18191f);
-  --pinkColor: var(#e15073);
+  --backgroundColor1: #11101d;
+  --backgroundColor2: #18191f;
+  --backgroundBox: rgba(255, 255, 255, 0.11);
+  --pinkColor: #e15073;
+  --yellowColor: #fcd194;
+  --greenColor: #96d279;
 }
 
 body {
   margin-top: 4rem;
   font-size: 1.6rem;
   min-height: 100vh;
-  background: linear-gradient(#11101d, #18191f) no-repeat;
+  background: linear-gradient(var(--backgroundColor1), var(--backgroundColor2))
+    no-repeat;
   color: white;
   display: flex;
   flex-direction: column;
@@ -45,7 +49,6 @@ p {
 }
 
 .first-section p {
-  /* margin-bottom: 2rem; */
   font-weight: bold;
 }
 
@@ -62,7 +65,7 @@ p {
 }
 
 .item {
-  background-color: rgba(255, 255, 255, 0.11);
+  background-color: var(--backgroundBox);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -91,15 +94,15 @@ input[type="number"]:focus {
 }
 
 #age {
-  color: #fcd194;
+  color: var(--yellowColor);
 }
 
 #weight {
-  color: #96d279;
+  color: var(--greenColor);
 }
 
 #height {
-  color: #e15073;
+  color: var(--pinkColor);
 }
 
 #go {
@@ -134,10 +137,10 @@ button:active {
   font-weight: bold;
 }
 #result {
+  background-color: var(--backgroundBox);
   margin-top: 2rem;
   width: 30rem;
   height: 18rem;
-  background-color: #fcd194;
 }
 
 #tadaa {
