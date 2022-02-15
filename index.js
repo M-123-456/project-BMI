@@ -7,7 +7,6 @@ const ElementById = (id) => {
 const lastInput = ElementById("height");
 lastInput.addEventListener("keyup", function (e) {
   if (e.which === 13) {
-    e.preventDefault();
     ElementById("go").click();
   }
 });

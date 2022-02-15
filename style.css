@@ -1,3 +1,5 @@
+/* css reset */
+
 * {
   margin: 0;
   padding: 0;
@@ -5,9 +7,9 @@
   border: black, 1px, solid;
 }
 
+/* variable */
 :root {
   font-size: 62.5%;
-  font-family: Helvetica, Arial, sans-serif;
   --backgroundColor1: #11101d;
   --backgroundColor2: #18191f;
   --backgroundBox: rgba(255, 255, 255, 0.11);
@@ -16,9 +18,10 @@
   --greenColor: #96d279;
 }
 
+/* global style */
+
 body {
   margin-top: 4rem;
-  font-size: 1.6rem;
   min-height: 100vh;
   background: linear-gradient(var(--backgroundColor1), var(--backgroundColor2))
     no-repeat;
@@ -33,12 +36,45 @@ main {
   margin: 2rem;
 }
 
+/* typography */
+body {
+  font-size: 1.6rem;
+  font-family: Helvetica, Arial, sans-serif;
+  color: white;
+}
+
 h1 {
   font-size: 3rem;
 }
 
-p {
+p,
+.item label {
   font-size: 2rem;
+}
+
+.first-section p,
+.second-section p {
+  font-weight: bold;
+}
+
+#age {
+  color: var(--yellowColor);
+}
+
+#weight {
+  color: var(--greenColor);
+}
+
+#height {
+  color: var(--pinkColor);
+}
+
+/* layout */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
 .first-section {
@@ -48,16 +84,20 @@ p {
   gap: 2rem;
 }
 
-.first-section p {
-  font-weight: bold;
-}
-
 .data {
   display: flex;
   gap: 3rem;
   margin-bottom: 2rem;
 }
 
+.second-section {
+  margin-top: 4rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+/* component */
 .box {
   height: 20rem;
   width: 20rem;
@@ -70,10 +110,6 @@ p {
   flex-direction: column;
   justify-content: space-between;
   padding: 2rem;
-}
-
-.item label {
-  font-size: 2rem;
 }
 
 .item input {
@@ -93,22 +129,6 @@ input[type="number"]:focus {
   outline: 0;
 }
 
-#age {
-  color: var(--yellowColor);
-}
-
-#weight {
-  color: var(--greenColor);
-}
-
-#height {
-  color: var(--pinkColor);
-}
-
-#go {
-  align-self: flex-end;
-}
-
 button {
   width: 20rem;
   padding: 0.5rem;
@@ -126,16 +146,10 @@ button:active {
   color: black;
 }
 
-.second-section {
-  margin-top: 4rem;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
+#go {
+  align-self: flex-end;
 }
 
-.second-section div p {
-  font-weight: bold;
-}
 #result {
   background-color: var(--backgroundBox);
   margin-top: 2rem;
