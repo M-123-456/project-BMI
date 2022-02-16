@@ -214,3 +214,15 @@ button:active {
     flex-direction: column;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .item,
+  #result {
+    width: 20rem;
+  }
+
+  .box {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
